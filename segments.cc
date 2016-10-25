@@ -66,21 +66,6 @@ void display(void)
    buildRotateZ(180.0, M);
    glMultMatrixf(M);
 
-   /*
-   buildRotateZ(180.0, M);
-   transpose(4,M);
-   glMultMatrixf(M);
-   buildRotateX(35.27, M);
-   transpose(4,M);
-   glMultMatrixf(M);
-   buildRotateZ(-45.0, M);
-   transpose(4,M);
-   glMultMatrixf(M);
-   buildTranslate(-1.0,-1.0,-1.0, M);
-   transpose(4,M);
-   glMultMatrixf(M);
-   */
-   
 
    /* Draw the line segments */
 
