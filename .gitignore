@@ -1,3 +1,6 @@
+segments
+tags
+
 # Object files
 *.o
 *.ko
