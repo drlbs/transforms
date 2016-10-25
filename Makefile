@@ -14,6 +14,8 @@
 CC = gcc
 C++ = g++ 
 LDLIBS =  -lglut -lGL -lGLU -lm
+HEADERS = prototypes.h
+OBJS = matrix.o 
 
 debug ?= n
 ifeq ($(debug), y)
@@ -25,11 +27,14 @@ endif
 
 all: segments
 
-segments :	segments.o
-	$(CC) $(CFLAGS) segments.o -o segments $(LDLIBS)
+segments :	segments.o $(OBJS) 
+	$(CC) $(CFLAGS) segments.o $(OBJS) -o segments $(LDLIBS)
 
-segments.o : segments.cc
+segments.o : segments.cc $(HEADERS)
 	$(CC) $(CFLAGS) segments.cc -c
+
+matrix.o : matrix.cc $(HEADERS)
+	$(CC) $(CFLAGS) matrix.cc -c
 
 clean:
 	rm *.o
