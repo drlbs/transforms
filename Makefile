@@ -19,13 +19,13 @@ OBJS = matrix.o
 
 debug ?= n
 ifeq ($(debug), y)
-    CCFLAGS += -g -DDEBUG
+    CFLAGS += -g -DDEBUG
 else
-    CCFLAGS += -O2 
+    CFLAGS += -O2 
 endif
 
 
-all: segments
+all: segments tags
 
 segments :	segments.o $(OBJS) 
 	$(CC) $(CFLAGS) segments.o $(OBJS) -o segments $(LDLIBS)
@@ -43,3 +43,5 @@ pristine:
 	rm *.o
 	touch *
 
+tags:
+	ctags *.cc *.h
