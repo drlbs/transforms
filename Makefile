@@ -17,9 +17,9 @@ LDLIBS =  -lglut -lGL -lGLU -lm
 
 debug ?= n
 ifeq ($(debug), y)
-    CCFLAGS += -g -DDEBUG
+    CFLAGS += -g -DDEBUG
 else
-    CCFLAGS += -O2 
+    CFLAGS += -O2 
 endif
 
 
