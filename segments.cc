@@ -57,16 +57,11 @@ void display(void)
 
    /* Your code to move the object should appear below this line */
 
-   buildTranslate(-1.0,-1.0,-1.0, M);
-   glMultMatrixf(M);
-   buildRotateZ(-45.0, M);
-   glMultMatrixf(M);
-   buildRotateX(35.27, M);
-   glMultMatrixf(M);
-   buildRotateZ(180.0, M);
-   glMultMatrixf(M);
-
-
+   glRotatef(180.0, 0.0, 0.0, 1.0 );
+   glRotatef(35.27, 1.0, 0.0, 0.0 );
+   glRotatef(-45.0, 0.0, 0.0, 1.0 );
+   glTranslatef(-1.0,-1.0,-1.0);
+ 
    /* Draw the line segments */
 
    glColor3f(1.0,0.0,0.0);               /* Red Segment */
