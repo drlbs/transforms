@@ -57,25 +57,30 @@ void display(void)
 
    /* Your code to move the object should appear below this line */
 
-
    buildTranslate(-1.0,-1.0,-1.0, M);
-   vmatm(4, M, &p1[0]);
-   vmatm(4, M, &p2[0]);
-   vmatm(4, M, &p3[0]); 
+   glMultMatrixf(M);
    buildRotateZ(-45.0, M);
-   vmatm(4, M, &p1[0]);
-   vmatm(4, M, &p2[0]);
-   vmatm(4, M, &p3[0]); 
+   glMultMatrixf(M);
    buildRotateX(35.27, M);
-   vmatm(4, M, &p1[0]);
-   vmatm(4, M, &p2[0]);
-   vmatm(4, M, &p3[0]); 
+   glMultMatrixf(M);
    buildRotateZ(180.0, M);
-   vmatm(4, M, &p1[0]);
-   vmatm(4, M, &p2[0]);
-   vmatm(4, M, &p3[0]); 
-  
+   glMultMatrixf(M);
 
+   /*
+   buildRotateZ(180.0, M);
+   transpose(4,M);
+   glMultMatrixf(M);
+   buildRotateX(35.27, M);
+   transpose(4,M);
+   glMultMatrixf(M);
+   buildRotateZ(-45.0, M);
+   transpose(4,M);
+   glMultMatrixf(M);
+   buildTranslate(-1.0,-1.0,-1.0, M);
+   transpose(4,M);
+   glMultMatrixf(M);
+   */
+   
 
    /* Draw the line segments */
 
