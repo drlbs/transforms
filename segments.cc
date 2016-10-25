@@ -55,6 +55,16 @@ void display(void)
 
    drawAxes(5);
 
+#ifdef DEBUG
+  printf("**************\n");
+  printf( "Red Segment Vertices Before Transformation\n");
+  printf( "    %f %f %f \n", p1[0], p1[1], p1[2]);
+  printf( "    %f %f %f \n", p2[0], p2[1], p2[2]);
+  printf( "Green Segment Vertices Before Transformation\n");
+  printf( "    %f %f %f \n", p1[0], p1[1], p1[2]);
+  printf( "    %f %f %f \n", p3[0], p3[1], p3[2]);
+#endif
+
 
    /* Your code to move the object should appear below this line */
 
@@ -76,6 +86,16 @@ void display(void)
    vmatm(4, M, &p2[0]);
    vmatm(4, M, &p3[0]); 
   
+#ifdef DEBUG
+  printf( "Red Segment Vertices After Transformation\n");
+  printf( "    %f %f %f \n", p1[0], p1[1], p1[2]);
+  printf( "    %f %f %f \n", p2[0], p2[1], p2[2]);
+  printf( "Green Segment Vertices After Transformation\n");
+  printf( "    %f %f %f \n", p1[0], p1[1], p1[2]);
+  printf( "    %f %f %f \n", p3[0], p3[1], p3[2]);
+  printf("**************\n");
+#endif
+
 
 
    /* Draw the line segments */
