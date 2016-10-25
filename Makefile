@@ -25,7 +25,7 @@ else
 endif
 
 
-all: segments
+all: segments tags
 
 segments :	segments.o $(OBJS) 
 	$(CC) $(CFLAGS) segments.o $(OBJS) -o segments $(LDLIBS)
@@ -42,4 +42,8 @@ clean:
 pristine:
 	rm *.o
 	touch *
+
+tags:
+	ctags *.cc *.h
+
 
