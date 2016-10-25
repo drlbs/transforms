@@ -1,5 +1,5 @@
-#include <iostream>
-#include <cmath>
+#include <stdio.h>
+#include <math.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
@@ -54,6 +54,7 @@ void display(void)
    /* Draw a coordinate axis */
 
    drawAxes(5);
+
 
    /* Your code to move the object should appear below this line */
 
