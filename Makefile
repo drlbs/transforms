@@ -13,13 +13,28 @@
 
 CC = gcc
 C++ = g++ 
-LIBDIRS = -L/usr/X11R6/lib
-INCDIRS = -I/usr/X11R6/include
-LDLIBS =  -lglut -lGL -lGLU -lX11 -lm
+LDLIBS =  -lglut -lGL -lGLU -lm
 
-.c:
-	$(CC)  $@.c $(INCDIRS) $(LIBDIRS) $(LDLIBS) -o $@
+debug ?= n
+ifeq ($(debug), y)
+    CCFLAGS += -g -DDEBUG
+else
+    CCFLAGS += -O2 
+endif
 
 
-.cc:
-	$(C++)  -O $@.cc $(INCDIRS) $(LIBDIRS) $(LDLIBS) -o $@
+all: segments
+
+segments :	segments.o
+	$(CC) $(CFLAGS) segments.o -o segments $(LDLIBS)
+
+segments.o : segments.cc
+	$(CC) $(CFLAGS) segments.cc -c
+
+clean:
+	rm *.o
+
+pristine:
+	rm *.o
+	touch *
+
