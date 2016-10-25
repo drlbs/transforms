@@ -80,7 +80,7 @@ void display(void)
    buildRotateX(35.27, M);
    vmatm(4, M, &p1[0]);
    vmatm(4, M, &p2[0]);
-   vmatm(4, M, &p3[0]); 
+   vmatm(14, M, &p3[0]); 
    buildRotateZ(180.0, M);
    vmatm(4, M, &p1[0]);
    vmatm(4, M, &p2[0]);
