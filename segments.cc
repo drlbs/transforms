@@ -4,83 +4,13 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
+#include "prototypes.h"
+
 void init(void) 
 {
    glClearColor (0.0, 0.0, 0.0, 0.0);
    glShadeModel (GL_FLAT);
 }
-
-void transpose( int ndim, float *m )
-{
-// m is a pointer to a square matrix of dimension ndim 
-  int i, j;
-  float temp; 
-  for ( i=0; i<ndim; i++)
-	  for (j=i+1;j<ndim; j++)
-                  {
-                  temp = *(m+i*ndim+j);
-		  *(m+i*ndim+j)=*(m+j*ndim+i);
-                  *(m+j*ndim+i)=temp;
-                  }
-}
-
-void vmatm (int SIZE, float *pA, float *pB)
-
-// pA is a pointer to the first element of matrix A
-// pB is a pointer to the first element of vector B
-// On return, B will contain transformed coordinates
-{
-   int i, j;
-   float temp[4];
-
-   for (i=0; i<SIZE; i++)
-             temp[i] = 0.0;
-
-   for (i = 0; i < SIZE; i++)
-     for (j = 0; j < SIZE; j++)
-           temp[i] += *(pA+(i*SIZE+j)) * *(pB+j);
-
-   for (i = 0; i < SIZE; i++)
-         *(pB+i) = temp[i];
-}
-
-
-void mmatm (int SIZE, float *pA, float *pB)
-
-// pA is a pointer to the first element of matrix A
-// pB is a pointer to the first element of matrix B
-// On return, B will contain the matrix product 
-{
-   int i, j, k;
-   float temp[4][4];
-
-   for (i=0; i<SIZE; i++)
-	   for (j=0; j<SIZE; j++)
-             temp[i][j] = 0.0;
-
-   for (i = 0; i < SIZE; i++)
-     for (j = 0; j < SIZE; j++)
-	 for (k = 0; k < SIZE; k++)
-           temp[i][j] += *(pA+(i*SIZE+k)) * *(pB+(k*SIZE+j));
-        
-
-   for (i = 0; i < SIZE; i++)
-     for (j = 0; j < SIZE; j++)
-         *(pB+(i*SIZE+j)) = temp[i][j];
-
-}
-
-float vlength( float x0, float y0, float z0, float x1, float y1, float z1)
-{
-/* This will return the length of the line segment */
-
-	float X, Y, Z;
-	float length;
-	
-	X = x0-x1; Y=y0-y1; Z=z0-z1;
-        length = sqrt(X*X+Y*Y+Z*Z);
-	return(length);
-}	
 
 void drawAxes(int length)
 {   
@@ -128,6 +58,22 @@ void display(void)
    /* Your code to move the object should appear below this line */
 
 
+   buildTranslate(-1.0,-1.0,-1.0, M);
+   vmatm(4, M, &p1[0]);
+   vmatm(4, M, &p2[0]);
+   vmatm(4, M, &p3[0]); 
+   buildRotateZ(-45.0, M);
+   vmatm(4, M, &p1[0]);
+   vmatm(4, M, &p2[0]);
+   vmatm(4, M, &p3[0]); 
+   buildRotateX(35.27, M);
+   vmatm(4, M, &p1[0]);
+   vmatm(4, M, &p2[0]);
+   vmatm(4, M, &p3[0]); 
+   buildRotateZ(180.0, M);
+   vmatm(4, M, &p1[0]);
+   vmatm(4, M, &p2[0]);
+   vmatm(4, M, &p3[0]); 
   
 
 
