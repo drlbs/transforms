@@ -2,14 +2,6 @@
 #   whose source is exactly one .c or .cc file.
 #
 #
-# To use this Makefile, you type:
-#
-#        make xxxx
-#                  
-# where
-#       xxxx.c is the name of the file you wish to compile 
-#       
-# A binary named xxxx will be produced
 
 CC = gcc
 C++ = g++ 
