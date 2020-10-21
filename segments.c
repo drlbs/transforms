@@ -138,6 +138,7 @@ void display(void)
   
    /* Your code to move the object should appear below this line */
 
+   /* Move the object so that both line segments start at the origin */
 
 #ifdef DEBUG
   printf( "Red Segment Vertices After Transformation\n");
