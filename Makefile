@@ -20,8 +20,8 @@ all: segments
 segments :	segments.o
 	$(CC) $(CFLAGS) segments.o -o segments $(LDLIBS)
 
-segments.o : segments.cc
-	$(CC) $(CFLAGS) segments.cc -c
+segments.o : segments.c
+	$(CC) $(CFLAGS) segments.c -c
 
 clean:
 	rm *.o
